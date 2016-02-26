@@ -47,7 +47,8 @@ public class WanderingAnimals
         // Main Program
         System.out.println("Welcome to watching cats wander.\n");
         
-        Random rand = new Random();
+        //Random rand = new Random();
+        Scanner keyboard = new Scanner(System.in);
         
         // All animal types will be pushed onto this array
         ArrayList<Animal> myAnimals = new ArrayList<Animal>();
@@ -99,24 +100,64 @@ public class WanderingAnimals
         Point pos;
         for (Animal x : myAnimals)
         {
+            System.out.println("----------");
             // Is this a cat?
             if (x instanceof Cat)
                 System.out.println(x.name + " is a cat!");
             else
                 System.out.println(x.name + " is NOT a cat! It's a " + x.getclass() + "!");
                 
-                x.Sleep();
                 x.Eat();
+                x.Sleep();
                 
             // Update position of the cat on the grid
             pos = x.getPos();
             myGrid.grid[pos.x][pos.y] = x.getid();
         }
         
-        // Print out the grid
-        System.out.println();
-        myGrid.PrintGrid();
+        // Main loop
+        int end = 1;
+        String sinput;
+        char cinput;
+        do
+        {
+            System.out.println("\n\n----------");
+            System.out.println("Commands:");
+            System.out.println("e - Eat");
+            System.out.println("w - Wander");
+            System.out.println("x - Exit");
+            System.out.println("\nEnter command: ");
+            cinput = keyboard.next().charAt(0);
+            
+            switch (cinput)
+            {
+                // TODO - entries for all commands plus function calls
+                case 'w':
+                case 'W':
+                    // TODO
+                    break;
+                case 'e':
+                case 'E':
+                    for (Animal x : myAnimals)
+                    {
+                        x.Eat();
+                    }
+                    break;
+                case 'x':
+                case 'X':
+                    end = 0;
+                    break;
+                default:
+                    System.out.println("\nPlease enter a valid command. ");
+                    break;
+            }
+            
+            // Print out the grid
+            System.out.println();
+            myGrid.PrintGrid();
+        }
+        while (end != 0);
         
-        System.out.println("\nCats are done wandering.");
+        System.out.println("\nAnimals are done wandering.");
     }
 }

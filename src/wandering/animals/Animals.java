@@ -94,18 +94,22 @@ class Cat extends Animal
     Cat()
     {
         super();
+        wanderRange = 1;
     }
     Cat(String aName)
     {
         super(aName);
+        wanderRange = 1;
     }
     Cat(String aname, int aPosx, int aPosy)
     {
         super(aname, aPosx, aPosy);
+        wanderRange = 1;
     }
     Cat(String aname, Point aPos)
     {
         super(aname, aPos);
+        wanderRange = 1;
     }   
     
     // Methods
@@ -114,11 +118,23 @@ class Cat extends Animal
         System.out.println(name + " is now prowling.");
     }
     
-    void Wander()
+    // - Animal wanders to 'inpos', which is preselected by the grid based
+    // on the animals wander range.
+    void Wander(Point inpos)
     {
+        // TODO
+        
         System.out.println(name + " has wandered.");
-        
-        
+    }
+    
+    void SetWanderRange(int in)
+    {
+        wanderRange = in;
+    }
+    
+    int GetWanderRange()
+    {
+        return wanderRange;
     }
     
     String getclass()
@@ -127,6 +143,7 @@ class Cat extends Animal
     }
     
     // Vars
+    int wanderRange;
 }
 
 class ScottishFold extends Cat
