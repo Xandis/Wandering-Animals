@@ -19,6 +19,7 @@ Simple java program showing off small skills
 *******************************************************/
 
 import java.util.*;
+import javax.swing.*;
 //import java.lang.*;
 //import java.io.*;
 
@@ -76,26 +77,19 @@ public class WanderingAnimals
             myAnimals.add(bat);
         // -------------------
         
-        // Experimenting with polymorphism here
-        // Used an "Animal" base type to store all Cats/Bats in but
-        // due to polymorphism, the correct class will be called at runtime
-        /*Animal myCat = new Cat("Willbur");
-            myAnimals.add(myCat);
-        myCat = new Cat("Bucky", rand.nextInt(w), rand.nextInt(h));
-            myAnimals.add(myCat);
-        myCat = new ScottishFold("Yarlie", rand.nextInt(w), rand.nextInt(h));
-            myAnimals.add(myCat);
-        Bat bat = new Bat("Flappy", rand.nextInt(w), rand.nextInt(h));
-            myAnimals.add(bat);*/
+        /* -----------Setting up a jframe----------- */
+        // Create the frame.
+        JFrame myframe = new JFrame("Wandering Animals");
+        myframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // Size everything to the frame. Not needed if using setSize()
+        //myframe.pack();
+        // Display the frame
+        myframe.setVisible(true);
+        // Set the size of the window
+        myframe.setSize(500, 300);
+        myframe.setLocationRelativeTo(null);
         
-        /*myCat.Sleep();
-        myCat.Eat();
-        myCat.Prowl();*/
-        
-        // Definintion/Creation of the grid which animals will be
-        // displayed on.
-        /*Grid myGrid = new Grid(w,h);
-	myGrid.InitGrid();*/
+        //myframe.add(new TextField("This is a test of the emergency wandering system..."));
         
         Point pos;
         for (Animal x : myAnimals)
